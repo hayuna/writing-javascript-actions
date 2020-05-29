@@ -1,11 +1,14 @@
 name: JS Actions
-on: [push]
+on: 
+  pull_request:
+    types: [labeled]
 jobs:
   action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: hello-action
-      uses: ./.github/actions/hello-world
-      with:
-        first-greeting: "Learning Lab User"
+      - uses: actions/checkout@v1
+      - name: hello-action
+        uses: ./.github/actions/hello-world
+      - name: ha-ha
+        uses: ./.github/actions/joke-action
+   
